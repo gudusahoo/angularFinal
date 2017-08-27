@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+    
+        <meta charset="UTF-8"/>
+        <title>Angular JS - Services </title>
+        
+           <script src="./angular.min.js"> </script> 
+        
+            <script>
+        
+                var app=angular.module('eshop',[]);
+                
+                app.service('SalCal', function()
+                {
+                   this.gross = function(a)
+                   {
+                       var da = (6 * a) / 100 ;
+                       var hra = (10 * a) / 100 ;
+                       var ta = (9 * a) / 100 ;
+                       var gro = a + da + hra + ta ;
+                       return (gro);
+                   }
+                   
+                   
+                            
+                });
+                
+                app.controller('eshopController', function($scope, SalCal) 
+                {
+                    $scope.gross = function()
+                    {
+                    var x = parseFloat($scope.a);
+                    var t1 = SalCal.gross(x)
+                    
+                    $scope.gr = t1;
+                   
+                    }
+                          
+                });
+        
+            </script>
+           
+        
+    <!-- This shows the intro to Angular JS -->
+    
+    </head>
+    
+    <body ng-app="eshop" ng-controller="eshopController"> 
+
+        <p>
+            Enter the first number: <input ng-model="a">
+        </p>    
+        
+        
+        <p>
+            Gross salary is : {{gr}}
+        </p>   
+        
+    
+        <button ng-click="gross()"> GROSS </button>
+    
+
+    </body>
+
+</html>

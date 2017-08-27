@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>try angular</title>
+<script  src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopCtrl">
+<p>
+physics:<input ng-model="a">
+</p>
+<p>
+chemistry:<input ng-model="b">
+</p>
+<p>
+english:<input ng-model="c">
+</p>
+
+<p>
+emf:<input ng-model="d">
+</p>
+
+<p>
+the sum is {{sum}}
+</p>
+
+
+<p>
+<button ng-click="add()">Add Number</button>
+</p>
+</body>
+
+<script>
+var app = angular.module('eshop',[]);
+app.controller('eshopCtrl',function($scope){
+
+$scope.add=function(){
+var t1=parseFloat($scope.a);
+var t2=parseFloat($scope.b);
+var t3=parseFloat($scope.c);
+var t4=parseFloat($scope.d);
+$scope.sum=(t1+t2+t3+t4);
+
+}
+
+
+});
+</script>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>try angular</title>
+<script  src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopCtrl">
+
+<p>
+enter first number:<input ng-model="a">
+</p>
+
+
+<p>
+enter first number:<input ng-model="b">
+</p>
+
+<button ng-click="add()">add</button
+
+</body>
+
+<script>
+var app = angular.module('eshop',[]);
+
+app.service('calculator',function(){
+
+this.addSer=function(a,b){
+return(a+b)
+
+}
+this.subtractSer=function(a,b){
+return(a-b);
+}
+
+});
+
+
+
+
+app.controller('eshopCtrl',function($scope,calculator){
+
+var t1=parseInt($scope.a);
+var t2=parseInt($scope.b);
+
+$scope.add=function(t1,t2){
+
+ return calculator.addSer(t1,t2);
+}
+
+
+
+
+});
+</script>
+</html>

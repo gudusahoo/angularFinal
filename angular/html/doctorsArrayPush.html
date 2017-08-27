@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>try angular</title>
+<script  src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopCtrl">
+
+<p>
+id:<input ng-model="doc.id">
+</p>
+
+
+<p>
+name:<input ng-model="doc.name">
+
+</p
+
+<p>
+name:<input ng-model="doc.age">
+</p>
+
+<p>
+salary:<input ng-model="doc.salary">
+
+</p>
+
+<p>
+<button ng-click="save()">add doc</button
+</p>
+
+<table>
+<th>id</th>
+<th>name</th>
+<th>age</th>
+<th>salary</th>
+<th>Action</th>
+
+
+<tr ng-repeat="x in docs">
+<td>{{$index}}</td>
+<td>{{x.name}}</td>
+<td>{{x.age}}</td>
+<td>{{x.sal}}</td>
+<td ng-click="delete($index)">Delete</td>
+<td></td>
+</tr>
+
+</table>
+
+
+
+
+</body>
+
+<script>
+var app = angular.module('eshop',[]);
+app.controller('eshopCtrl',function($scope){
+
+
+
+
+
+$scope.delete=function(x){
+$scope.docs.splice(x,1)
+}
+$scope.save=function(){
+console.log(JSON.stringify($scope.doc));
+$scope.docs.push($scope.doc)
+$scope.doc={};
+}
+
+$scope.docs=[
+{
+id:1,
+name:"saumya",
+age:21,
+sal:12000
+}];
+
+$scope.doc={
+};
+});
+</script>
+</html>

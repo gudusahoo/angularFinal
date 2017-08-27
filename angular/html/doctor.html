@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>try angular</title>
+<script  src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopCtrl">
+
+<p>
+id:<input ng-model="doc.id">
+id:{{doc.id}}
+</p>
+
+
+<p>
+name:<input ng-model="doc.name">
+name:{{doc.name}}
+</p>
+
+<p>
+salary:<input ng-model="doc.salary">
+salary:{{doc.salary}}
+</p>
+
+<p>
+specialization:<input ng-model="doc.specialization">
+specialization:{{doc.specialization}}
+</p>
+
+
+
+
+</body>
+
+<script>
+var app = angular.module('eshop',[]);
+app.controller('eshopCtrl',function($scope){
+
+$scope.doc={
+id:1,
+name:"saumya",
+salary:12000,
+specialization:"ent"
+}
+});
+</script>
+</html>

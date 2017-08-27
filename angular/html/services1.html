@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>try angular</title>
+<script  src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopCtrl">
+
+</body>
+
+<script>
+var app = angular.module('eshop',[]);
+
+app.service('calculator',function(){
+
+this.add=function(a,b){
+return(a+b)
+}
+this.subtract=function(a,b){
+return(a-b);
+}
+
+});
+
+
+
+
+app.controller('eshopCtrl',function($scope,calculator){
+
+var t1=calculator.add(1,2);
+var t2=calculator.subtract(10,2);
+
+console.log('sum='+t1+'subtract='+t2)
+
+});
+</script>
+</html>

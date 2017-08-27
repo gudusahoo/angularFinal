@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<meta charset="ISO-8859-1">
+<title>try angular</title>
+<script  src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopController" ng-init="emps=getEmployees()">
+{{emps}}
+</body>
+
+<script type="text/javascript">
+
+var app=angular.module("eshop", []);
+app.controller("eshopController",function($scope) {
+	$scope.getEmployees=function(){
+		var emps=[
+		          {
+		        	id:1,
+		        	name:'saumya'
+		          },
+		          {
+		        	  id:2,
+		        	  name:'sunil'
+		          }
+		          ];
+	return emps;
+	}
+});
+
+</script>
+</html>

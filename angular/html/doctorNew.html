@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>try angular</title>
+<script  src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopCtl">
+
+<p>
+id:<input ng-model="doctor.id">
+</p>
+
+
+<p>
+name:<input ng-model="doctor.name">
+</p>
+
+<p>
+salary:<input ng-model="doctor.salary">
+</p>
+
+<p>
+specialization:<input ng-model="doctor.specialization">
+</p>
+
+
+<p>
+<button ng-click="saveDoctor()">add product</button>
+</p>
+
+<table border="1">
+<th>id</th>
+<th>name</th>
+<th>salary</th>
+<th>Specialization</th>
+<th>action</th>
+
+
+<tr ng-repeat="x in doctors">
+<td>{{x.id}}</td>
+<td>{{x.name}}</td>
+<td>{{x.salary}}</td>
+<td>{{x.specialization}}</td>
+<td ng-click="deleteDoctor($index)">Delete</td>
+<td></td>
+</tr>
+
+</table>
+
+</body>
+
+<script>
+var app = angular.module('eshop',[]);
+
+app.run(function($rootScope){
+
+$rootScope.doctors=[{
+id:1,
+name:"sunil",
+salary:100,
+specialization:"ent"
+},
+{
+id:2,
+name:"saumya",
+salary:200,
+specialization:"gynic"
+},
+{
+id:3,
+name:"mohan",
+salary:300,
+specialization:"ortho"
+}
+
+]
+
+});
+
+
+
+app.service('Product1',function($rootScope){
+
+this.addDoctor=function(doctor){
+$rootScope.doctors.push(doctor);
+}
+
+
+this.removeDoctor=function(x){
+$rootScope.doctors.splice(x,1);
+}
+
+});
+
+app.controller('eshopCtl',function($scope,Product1){
+
+$scope.saveDoctor=function(){
+Product1.addDoctor($scope.doctor);
+}
+
+
+$scope.deleteDoctor=function(index){
+Product1.removeDoctor(index);
+}
+
+
+
+});
+</script>
+</html>

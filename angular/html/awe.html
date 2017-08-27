@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>try angular</title>
+<script  src="./angular.min.js"></script>
+</head>
+<body ng-app="eshop" ng-controller="eshopCtrl">
+<input ng-model="a"><br>
+Number is:{{a}}
+
+</body>
+
+<script>
+var app = angular.module('eshop',[]);
+app.controller('eshopCtrl',function($scope){
+
+$scope.a=20;
+});
+</script>
+</html>
